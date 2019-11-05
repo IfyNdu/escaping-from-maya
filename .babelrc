@@ -11,7 +11,8 @@
         "alias": {
           "assets": "./src/assets",
           "Components": "./src/components"
-        }
+        },
+        "corejs": 3
       }
     ]
   ]
