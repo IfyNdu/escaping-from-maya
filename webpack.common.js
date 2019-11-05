@@ -57,17 +57,18 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
-              camelCase: true,
+              import: true,
               importLoaders: 1,
-              localIdentName: '[name]_[local]_[hash:base64]',
-              minimize: true,
-              modules: true,
-              sourceMap: true
+              localsConvention: 'camelCase',
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              sourceMap: true,
+              url: true
             }
           },
           {
