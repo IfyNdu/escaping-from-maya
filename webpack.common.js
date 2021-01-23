@@ -1,3 +1,4 @@
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
@@ -16,8 +17,7 @@ module.exports = {
         exclude: /node_modules/,
         test: /\.js$/,
         use: [
-          'babel-loader',
-          'eslint-loader',
+          'babel-loader'
         ],
       },
       {
@@ -62,9 +62,8 @@ module.exports = {
             options: {
               import: true,
               importLoaders: 1,
-              localsConvention: 'camelCase',
               modules: {
-                localIdentName: '[name]__[local]___[hash:base64:5]',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
               },
               sourceMap: true,
               url: true
@@ -73,9 +72,11 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [
-                require('autoprefixer')
-              ]
+              postcssOptions: {
+                plugins: [
+                  'postcss-preset-env'
+                ]
+              }
             }
           },
           {
@@ -86,6 +87,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new ESLintPlugin(),
     new HtmlWebPackPlugin({
       filename: './index.html',
       template: './src/index.html',

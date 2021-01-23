@@ -4,7 +4,7 @@ import React from 'react';
 import App from './app';
 
 
-describe('my fucking component', () => {
+describe('my amazing component', () => {
 
   it('renders without crashing', () => {
 
