@@ -1,0 +1,26 @@
+@import 'global-styles';
+
+
+.root {
+  width: 100%;
+
+  font-size: 2rem;
+}
+
+
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.image {
+  margin: 2px;
+}
+
+
+.portal {
+  position: absolute;
+    top: 0;
+    left: -30px;
+}
